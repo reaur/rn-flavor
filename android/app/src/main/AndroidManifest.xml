@@ -1,0 +1,45 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.flavordemo">
+
+    <!--HMS-SDK need network permission while check if upgrade is neccessary-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--HMS-SDK need network permission while hms is upgrading-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--chek network permissions-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--check wifi state-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--check phone state-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--if your app is running above android 8.0 and use "targetSdkVersion>=26, need add permission -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- running after lock screen -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- get the location detail -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- get the general location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+
+    <application
+        android:name=".HMSApplication"
+        android:allowBackup="false"
+        android:icon="${appIcon}"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".HMSActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+    </application>
+
+</manifest>
